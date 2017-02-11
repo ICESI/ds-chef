@@ -1,1 +1,1 @@
-include_recipe "seguridad::installnmap"
+include_recipe 'seguridad::installnmap'

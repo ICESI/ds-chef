@@ -5,7 +5,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define :centos_node do |node|
-    node.vm.box = "centos64"
+    node.vm.box = "CentOS64"
     node.vm.network :private_network, ip: "192.168.56.101"
     node.vm.network "public_network", bridge: "enp5s0", ip: "192.168.131.131", netmask: "255.255.255.0"
     node.vm.provider :virtualbox do |vb|
