@@ -6,7 +6,7 @@
 
 These commands must be executed from the host machine
 
-| Comando   | Descripción   |
+| Command | Description   |
 |---|---|
 | vagrant up | Run provision of the virtual machine |
 | vagrant up --no-provision | Create the virtual machine without provisioning |
@@ -17,6 +17,6 @@ These commands must be executed from the host machine
 
 These commands must be run inside the virtual environment
 
-| Comando   | Descripción   |
+| Command | Description   |
 |---|---|
 | chef-apply install_web.rb | Provision the specified recipe |
