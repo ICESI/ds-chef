@@ -21,4 +21,3 @@ These commands must be run inside the virtual environment
 |---|---|
 | chef-apply install_web.rb | Provision the specified recipe |
 
-``
