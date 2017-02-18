@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.ssh.insert_key = false
+  config.vm.define :centos_server do |server|
+    server.vm.box = "centos/7"
+    server.vm.network :private_network, ip: "192.168.56.101"
+    server.vm.network "public_network", bridge: "eth4", ip:"192.168.131.100", netmask: "255.255.255.0"
+    server.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "centos_server" ]
+    end
+    server.vm.provision "shell", inline: <<-SHELL
+      sudo yum install screen -y
+    SHELL
+  end
+  config.vm.define :centos_client do |client|
+    client.vm.box = "centos/7"
+    client.vm.network :private_network, ip: "192.168.56.102"
+    client.vm.network "public_network", bridge: "eth4", ip:"192.168.131.101", netmask: "255.255.255.0"
+    client.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "centos_client" ]
+    end
+    client.vm.provision "shell", inline: <<-SHELL
+      sudo yum install screen -y
+    SHELL
+ end
+end
