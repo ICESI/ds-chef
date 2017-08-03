@@ -20,7 +20,7 @@ $ vagrant ssh -c 'sudo rm -f /etc/udev/rules.d/60-vboxadd.rules'
 $ vagrant package --output CentosOS-7....
 ```
 
-### vagrant ssh results in permission denied
+#### vagrant ssh results in permission denied
 
 ```
 config.vm.provision "shell", inline: <<-SHELL
