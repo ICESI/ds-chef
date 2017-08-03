@@ -12,6 +12,7 @@ These commands must be executed from the host machine
 | vagrant up --no-provision | Create the virtual machine without provisioning |
 | vagrant provision | Provision the virtual machine on the fly |
 | vagrant destroy | Destroy virtual machine |
+| vagrant package --output box_name | Package a deployed virtual machine in a vagrant box |
 
 ### Chef commands
 
