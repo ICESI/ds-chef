@@ -1,0 +1,27 @@
+driver:
+  name: vagrant
+  customize:
+    memory: 1024
+    cpus: 2
+
+provisioner:
+  name: chef_zero
+  product_name: chef
+  product_version: 13.0.118
+
+platforms:
+- name: centos-7
+  driver:
+    box: centos-7.1706
+
+verifier:
+  name: inspec
+
+suites:
+  - name: default
+    run_list:
+      - recipe[git_cookbook::default]
+    verifier:
+      inspec_tests:
+        - path: cookbooks/git_cookbook/test/smoke/default
+    attributes:
