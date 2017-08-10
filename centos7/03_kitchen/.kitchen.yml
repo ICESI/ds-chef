@@ -5,14 +5,13 @@ driver:
     cpus: 2
 
 provisioner:
-  name: chef_zero
-  product_name: chef
-  product_version: 13.0.118
+  name: chef_solo
+  require_chef_omnibusl: 13.2.20
 
 platforms:
 - name: centos-7
   driver:
-    box: centos-7.1706
+    box: centos-7.1706_v0.2.0
 
 verifier:
   name: inspec
