@@ -7,7 +7,7 @@ $ sudo dpkg -i chefdk_2.0.28-1_amd64.deb
 
 ### Adicionar una box de centos
 ```
-$ vagrant box add centos-7.1706 ~/Documentos/centos7vagrant/CentOS-7-x86_64-Vagrant-1706_02.VirtualBox.box
+$ vagrant box add centos-7.1706_v0.2.0 centos-7.1706_v0.2.0.box
 ```
 
 ### Crear un cookbook
