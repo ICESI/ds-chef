@@ -2,18 +2,34 @@
 
 ### Instalar chekdk
 ```
-$ sudo dpkg -i chefdk_2.0.28-1_amd64.deb 
+$ sudo dpkg -i chefdk_2.0.28-1_amd64.deb
 ```
 
 ### Adicionar una box de centos
 ```
-$ vagrant box add centos-7.1706 ~/Documentos/centos7vagrant/CentOS-7-x86_64-Vagrant-1706_02.VirtualBox.box 
+$ vagrant box add centos-7.1706 ~/Documentos/centos7vagrant/CentOS-7-x86_64-Vagrant-1706_02.VirtualBox.box
 ```
 
 ### Crear un cookbook
 ```
 $ mkdir cookbooks
 $ chef generate cookbook cookbooks/git_cookbook
+```
+
+### Adicionar receta
+
+```
+$ vi cookbooks/git_cookbook/recipes/default.rb
+```
+
+```
+#
+# Cookbook:: git_cookbook
+# Recipe:: default
+#
+# Copyright:: 2017, The Authors, All Rights Reserved.
+
+package "git"
 ```
 
 ### Crear archivo .kitchen.yml
