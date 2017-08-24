@@ -1,0 +1,16 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.ssh.insert_key = false
+  config.vm.define :centos_server do |server|
+    server.vm.box = "centos-7.1706_v0.2.0"
+    server.vm.network :private_network, ip: "192.168.56.101"
+    server.vm.network "public_network", bridge: "eno1", ip:"192.168.131.100", netmask: "255.255.255.0"
+    server.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1024","--cpus", "1", "--name", "centos_server" ]
+    end
+  end
+end

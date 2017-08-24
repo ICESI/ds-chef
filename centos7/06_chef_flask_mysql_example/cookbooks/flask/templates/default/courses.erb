@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Universidad Icesi</title>
+  </head>
+  <body>
+    <% @courses.each do |course| %>
+      <h1><%= course[:id] %> - <%= course[:name] %></h1>
+    <% end %>
+  </body>
+</html>
