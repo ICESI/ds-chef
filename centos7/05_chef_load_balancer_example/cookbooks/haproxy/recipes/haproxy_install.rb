@@ -1,0 +1,1 @@
+yum_package 'haproxy'

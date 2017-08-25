@@ -7,6 +7,8 @@ cookbook_file '/var/www/html/index.html' do
 	group 'wheel'
 end
 
+puts node[:name]
+
 template '/var/www/html/welcome.html' do
 	source 'welcome.erb'
 	mode 0644
