@@ -24,8 +24,8 @@ These commands must be run inside the virtual environment
 
 ### Links
 
-https://app.vagrantup.com/boxes/search . 
-https://www.vagrantup.com/docs/provisioning/shell.html . 
-https://www.vagrantup.com/docs/provisioning/chef_solo.html . 
-https://docs.chef.io/resource_examples.html . 
+https://app.vagrantup.com/boxes/search  
+https://www.vagrantup.com/docs/provisioning/shell.html  
+https://www.vagrantup.com/docs/provisioning/chef_solo.html  
+https://docs.chef.io/resource_examples.html  
 https://docs.chef.io/kitchen.html
