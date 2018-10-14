@@ -2,6 +2,7 @@
 
 #### Install
 
+Install and configure LXD
 ```
 # install lxd
 sudo apt install -y lxd
@@ -25,9 +26,29 @@ vagrant init --minimal debian/stretch64
 vagrant up --provider lxd
 ```
 
+How to create a network profile and assign IPs from LAN
+```
+lxc profile list
+lxc profile create bridgeprofile
+cat <<EOF | lxc profile edit bridgeprofile
+description: Bridged networking LXD profile
+devices:
+  eth0:
+    name: eth0
+    nictype: bridged
+    parent: lxdbr0
+    type: nic
+EOF
+lxc profile show bridgeprofile
+lxc profile list
+lxc profile delete profile_name_to_delete
+lxc launch -p default -p bridgeprofile ubuntu:x mybridge
+lxc list
+```
+
 #### References
-https://app.vagrantup.com/boxes/search
-https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212
+https://app.vagrantup.com/boxes/search  
+https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212  
 https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
 
 #### Troubleshooting
