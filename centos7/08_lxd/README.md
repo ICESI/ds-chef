@@ -18,8 +18,8 @@ sudo dpkg-reconfigure -p medium lxd
 sudo usermod -a lxd -G $(whoami)
 # apply new group membership
 newgrp lxd
-# create and add a client certificate
-lxc config trust add /home/ubuntu/.config/lxc/client.crt
+# Provide a client certificate for the lxd connection
+lxc config trust add ~/.config/lxc/client.crt
 # run test
 vagrant init --minimal debian/stretch64
 vagrant up --provider lxd
@@ -27,8 +27,13 @@ vagrant up --provider lxd
 
 #### References
 https://app.vagrantup.com/boxes/search
+https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212
 
 #### Troubleshooting
+Client certificate do not exist
 ```
-find ~/ -iname client.crt
+# configure lxd to be able to access network through unix socket
+lxc config set core.https_address [::]
+lxc config set core.trust_password some-secret-password
+lxc remote add host-a 10.3.142.1
 ```
