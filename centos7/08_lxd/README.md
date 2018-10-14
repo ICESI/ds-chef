@@ -46,6 +46,20 @@ lxc launch -p default -p bridgeprofile ubuntu:x mybridge
 lxc list
 ```
 
+```
+# Let’s assign mycontainer to use the new profile, “default,bridgeprofile”.
+lxc list
+lxc profile assign my_vagrant_container default,bridgeprofile
+# Now we just need to restart the networking in the container.
+lxc exec my_vagrant_container -- systemctl restart networking.service
+# Verify that the container now has an IP address
+lxc list
+# ssh to the container
+vagrant ssh
+```
+
+**Note**: Find a way to do this straight from vagrant up
+
 #### References
 https://app.vagrantup.com/boxes/search  
 https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212  
