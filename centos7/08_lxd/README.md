@@ -28,6 +28,7 @@ vagrant up --provider lxd
 #### References
 https://app.vagrantup.com/boxes/search
 https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212
+https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
 
 #### Troubleshooting
 Client certificate do not exist
