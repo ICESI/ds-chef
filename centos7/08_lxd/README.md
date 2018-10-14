@@ -36,5 +36,5 @@ Client certificate do not exist
 # configure lxd to be able to access network through unix socket
 lxc config set core.https_address [::]
 lxc config set core.trust_password some-secret-password
-lxc remote add host-a 10.3.142.1
+lxc remote add host-a 10.3.142.1 <- I'm not sure about this IP
 ```
