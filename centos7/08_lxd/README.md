@@ -132,7 +132,8 @@ lxc list
 #### References
 https://app.vagrantup.com/boxes/search  
 https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212  
-https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/
+https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/  
+https://stgraber.org/2016/04/13/lxd-2-0-docker-in-lxd-712/
 
 #### Troubleshooting
 Client certificate do not exist
