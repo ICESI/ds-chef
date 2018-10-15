@@ -1,4 +1,4 @@
-### Work in Progress
+### Using Vagrant wit LXC/LXD containers
 
 #### Install
 
