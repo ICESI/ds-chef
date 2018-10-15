@@ -115,6 +115,20 @@ echo root:$(id -u):1 | sudo tee -a /etc/subuid
 echo root:$(id -g):1 | sudo tee -a /etc/subgid
 ```
 
+### Docker in LXD
+
+```
+lxc launch -p default -p bridgeprofile ubuntu:18.04 my_lxd_container -c security.nesting=true
+lxc exec my_lxd_container -- apt update
+lxc exec my_lxd_container -- apt dist-upgrade -y
+lxc exec my_lxd_container -- apt install docker.io -y
+lxc exec my_lxd_container -- docker run --detach --name app carinamarina/hello-world-app
+# Look how my_lxd_container has two ethernet interfaces (eth0, docker0)
+lxc list
+```
+
+**Note**: Research about how to make work docker with vagrant+lxd
+
 #### References
 https://app.vagrantup.com/boxes/search  
 https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212  
@@ -129,7 +143,3 @@ lxc config set core.trust_password some-secret-password
 lxc remote add host-a 10.3.142.1 <- I'm not sure about this IP
 ```
 
-My manually launched lxd container is not getting an IP address
-```
-lxc launch -p default -p bridgeprofile ubuntu:18.04 my_lxd_container
-```
