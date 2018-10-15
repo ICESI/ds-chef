@@ -25,6 +25,10 @@ lxc config trust add ~/.config/lxc/client.crt
 # run test
 vagrant init --minimal debian/stretch64
 vagrant up --provider lxd
+lxc list
+lxc exec my_vagrant_container /bin/bash
+exit
+vagrant destroy -f
 ```
 
 How to create a network profile and assign IPs from LAN
@@ -50,7 +54,8 @@ lxc profile delete bridgeprofile
 ```
 
 ```
-# Let’s assign mycontainer to use the new profile, “default,bridgeprofile”.
+# Let’s make an existing container to use the new profile, “default,bridgeprofile”.
+vagrant up --provider lxd
 lxc list
 lxc profile assign my_vagrant_container default,bridgeprofile
 # Now we just need to restart the networking in the container.
@@ -80,6 +85,34 @@ lxc list
 vagrant ssh
 exit
 vagrant destroy -f
+```
+
+Modify the Vagrantfile in the following way for multiple deployments
+```
+vi Vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/stretch64"
+  config.vm.provider 'lxd' do |lxd|
+    lxd.profiles = ['default', 'bridgeprofile']
+  end
+  config.vm.define :k8smaster do |master|
+  end
+  config.vm.define :k8sworker do |worker|
+  end
+end
+vagrant up --provider lxd
+# Verify that the containers now have an IP address
+lxc list
+# ssh to the one of the containers
+vagrant sshk8smaster
+exit
+vagrant destroy -f
+```
+
+In order to share folders you must run the following commands
+```
+echo root:$(id -u):1 | sudo tee -a /etc/subuid
+echo root:$(id -g):1 | sudo tee -a /etc/subgid
 ```
 
 #### References
