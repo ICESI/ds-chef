@@ -42,9 +42,11 @@ devices:
 EOF
 lxc profile show bridgeprofile
 lxc profile list
-lxc profile delete profile_name_to_delete
-lxc launch -p default -p bridgeprofile ubuntu:x mybridge
+lxc launch -p default -p bridgeprofile ubuntu:x bridge_test
 lxc list
+lxc delete bridge_test
+# In case you need to delete the created profile
+lxc profile delete bridgeprofile
 ```
 
 ```
@@ -57,9 +59,28 @@ lxc exec my_vagrant_container -- systemctl restart networking.service
 lxc list
 # ssh to the container
 vagrant ssh
+exit
+vagrant destroy -f
 ```
 
-**Note**: Find a way to do this straight from vagrant up
+Configuring VLAN access from scratch at vagrant up
+```
+vi Vagrantfile
+Vagrant.configure("2") do |config|
+  config.vm.box = "debian/stretch64"
+
+  config.vm.provider 'lxd' do |lxd|
+    lxd.profiles = ['default', 'bridgeprofile']
+  end
+end
+vagrant up --provider lxd
+# Verify that the container now has an IP address
+lxc list
+# ssh to the container
+vagrant ssh
+exit
+vagrant destroy -f
+```
 
 #### References
 https://app.vagrantup.com/boxes/search  
