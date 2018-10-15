@@ -128,3 +128,8 @@ lxc config set core.https_address [::]
 lxc config set core.trust_password some-secret-password
 lxc remote add host-a 10.3.142.1 <- I'm not sure about this IP
 ```
+
+My manually launched lxd container is not getting an IP address
+```
+lxc launch -p default -p bridgeprofile ubuntu:18.04 my_lxd_container
+```
