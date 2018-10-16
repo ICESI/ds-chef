@@ -138,8 +138,9 @@ lxc list
 https://app.vagrantup.com/boxes/search  
 https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212  
 https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/  
-https://stgraber.org/2016/04/13/lxd-2-0-docker-in-lxd-712/
-https://itnext.io/tutorial-part-1-kubernetes-up-and-running-on-lxc-lxd-b760c79cd53f
+https://stgraber.org/2016/04/13/lxd-2-0-docker-in-lxd-712/  
+https://itnext.io/tutorial-part-1-kubernetes-up-and-running-on-lxc-lxd-b760c79cd53f  
+https://itnext.io/tutorial-part-2-kubernetes-up-and-running-on-lxc-lxd-6d60e98f22df
 
 #### Troubleshooting
 Client certificate do not exist
