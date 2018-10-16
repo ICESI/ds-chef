@@ -1,6 +1,11 @@
 ### Using Vagrant wit LXC/LXD containers
 
 #### Install
+```
+lxd init
+# Answer all default options to yes except the following one in order to let the containers to receive an IP from the LAN
+Would you like LXD to be available over the network? (yes/no) [default=no]: yes
+```
 
 Install and configure LXD
 ```
@@ -31,7 +36,7 @@ exit
 vagrant destroy -f
 ```
 
-How to create a network profile and assign IPs from LAN
+How to create a new network profile 
 ```
 lxc profile list
 lxc profile create bridgeprofile
@@ -68,7 +73,7 @@ exit
 vagrant destroy -f
 ```
 
-Configuring VLAN access from scratch at vagrant up
+Use the new profile from scratch at vagrant up
 ```
 vi Vagrantfile
 Vagrant.configure("2") do |config|
@@ -134,6 +139,7 @@ https://app.vagrantup.com/boxes/search
 https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212  
 https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/  
 https://stgraber.org/2016/04/13/lxd-2-0-docker-in-lxd-712/
+https://itnext.io/tutorial-part-1-kubernetes-up-and-running-on-lxc-lxd-b760c79cd53f
 
 #### Troubleshooting
 Client certificate do not exist
