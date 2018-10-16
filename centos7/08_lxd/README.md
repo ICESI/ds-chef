@@ -1,17 +1,15 @@
 ### Using Vagrant wit LXC/LXD containers
 
 #### Install
-```
-lxd init
-# Answer all default options to yes except the following one in order to let the containers to receive an IP from the LAN
-Would you like LXD to be available over the network? (yes/no) [default=no]: yes
-```
-
 Install and configure LXD
 ```
 # install lxd
 sudo apt install -y lxd
 sudo apt install zfsutils-linux -y 
+# Configure init options
+lxd init
+# Answer all default options to yes except the following one in order to let the containers to receive an IP from the LAN
+Would you like LXD to be available over the network? (yes/no) [default=no]: yes
 # install vagrant
 wget -c https://releases.hashicorp.com/vagrant/2.0.3/vagrant_2.0.3_x86_64.deb
 sudo dpkg -i vagrant_2.0.3_x86_64.deb
