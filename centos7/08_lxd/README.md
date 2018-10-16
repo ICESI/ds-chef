@@ -118,7 +118,7 @@ echo root:$(id -u):1 | sudo tee -a /etc/subuid
 echo root:$(id -g):1 | sudo tee -a /etc/subgid
 ```
 
-### Docker in LXD
+### Docker on LXD
 
 ```
 lxc launch -p default -p bridgeprofile ubuntu:18.04 my_lxd_container -c security.nesting=true
@@ -130,6 +130,17 @@ lxc exec my_lxd_container -- docker run --detach --name app carinamarina/hello-w
 lxc list
 ```
 
+### Kubernetes on LXD
+```
+sudo snap install conjure-up --classic
+conjure-up kubernetes
+kubectl cluster-info
+kubectl proxy
+# http://localhost:8001/ui
+juju gui
+juju add-unit kubernetes-worker -n 2
+```
+
 **Note**: Research about how to make work docker with vagrant+lxd
 
 #### References
@@ -138,7 +149,8 @@ https://blog.ubuntu.com/2016/03/16/lxd-2-0-installing-and-configuring-lxd-212
 https://blog.simos.info/how-to-make-your-lxd-containers-get-ip-addresses-from-your-lan-using-a-bridge/  
 https://stgraber.org/2016/04/13/lxd-2-0-docker-in-lxd-712/  
 https://itnext.io/tutorial-part-1-kubernetes-up-and-running-on-lxc-lxd-b760c79cd53f  
-https://itnext.io/tutorial-part-2-kubernetes-up-and-running-on-lxc-lxd-6d60e98f22df
+https://itnext.io/tutorial-part-2-kubernetes-up-and-running-on-lxc-lxd-6d60e98f22df  
+https://www.adictosaltrabajo.com/tutoriales/instalar-kubernetes-on-premise-sin-dolor/
 
 #### Troubleshooting
 Client certificate do not exist
