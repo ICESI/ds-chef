@@ -118,6 +118,12 @@ echo root:$(id -u):1 | sudo tee -a /etc/subuid
 echo root:$(id -g):1 | sudo tee -a /etc/subgid
 ```
 
+You can push or pull files into/from a container using the following command:
+```
+lxc file push some_file.tar.gz lxc_container_name/tmp/
+lxc file pull lxc_container_name/tmp/some_file.tar.gz .
+```
+
 ### Docker on LXD
 
 ```
