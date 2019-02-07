@@ -32,7 +32,7 @@ $ vi cookbooks/git_cookbook/recipes/default.rb
 package "git"
 ```
 
-### Crear archivo .kitchen.yml
+### Actualizar el archivo .kitchen.yml dentro del directorio cookbooks/git_cookbook
 ```
 $ vi .kitchen.yml
 ```
@@ -63,7 +63,7 @@ suites:
       - recipe[git_cookbook::default]
     verifier:
       inspec_tests:
-        - path: cookbooks/git_cookbook/test/smoke/default
+        - path: test/integration/default
     attributes:
 ```
 
@@ -97,7 +97,7 @@ $ kitchen converge default-centos-7
 
 ### Adicionar pruebas unitarias
 ```
-$ vi cookbooks/git_cookbook/test/smoke/default/default_test.rb
+$ vi cookbooks/git_cookbook/test/integration/default/default_test.rb
 ```
 
 ```
