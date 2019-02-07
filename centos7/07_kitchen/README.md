@@ -85,6 +85,11 @@ Instance          Driver   Provisioner  Verifier  Transport  Last Action  Last E
 default-centos-7  Vagrant  ChefZero     Busser    Ssh        Created      <None>
 ```
 
+### Destruir la máquina virtual
+```
+$ kitchen destroy default-centos-7
+```
+
 ### Crear máquina virtual y aprovisionar
 ```
 $ kitchen converge default-centos-7
